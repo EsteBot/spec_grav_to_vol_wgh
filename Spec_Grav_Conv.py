@@ -154,6 +154,9 @@ if calc_button:
     # Check if any input is zero and display an error message
     if s_grv_input == 0 or s_vol_input == 0 or f_vol_input == 0:
         st.error("Error: Please enter a value greater than 0 for all fields.")
+    # Check if s_vol_input is within the valid range (greater than 0 and less than 100)
+    elif s_vol_input <= 0 or s_vol_input >= 100:
+        st.error("Error: The target volume percent must be between 0 and 100.")
     else:
         specific_gravity_converter(s_grv_input, s_vol_input, f_vol_input)
 
